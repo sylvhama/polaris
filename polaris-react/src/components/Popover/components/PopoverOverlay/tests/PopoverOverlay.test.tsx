@@ -4,6 +4,7 @@ import {mountWithApp} from 'tests/utilities';
 import {Key} from '../../../../../types';
 // eslint-disable-next-line import/no-deprecated
 import {EventListener} from '../../../../EventListener';
+// eslint-disable-next-line import/no-deprecated
 import {TextContainer} from '../../../../TextContainer';
 import {TextField} from '../../../../TextField';
 import {PositionedOverlay} from '../../../../PositionedOverlay';
