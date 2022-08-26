@@ -1,20 +1,16 @@
 import {createUrl} from 'playroom';
 
 const getAppCode = (code: string) => {
-  const lineWithFunctionName = code
-    .split('\n')
-    .filter((name) => name.match(/function .*Example/g))?.[0];
-  const functionName = lineWithFunctionName
-    ? lineWithFunctionName.replace('function ', '').replace('() {', '')
-    : 'Example';
-  const exportLine = `export default ${functionName};`;
-  let appCode = '';
+  const codeLines = code.split('\n');
+  let lineWithFunctionName = codeLines.findIndex((name) =>
+    name.match(/function .*Example/g),
+  );
 
-  appCode += code;
-  appCode += '\n';
-  appCode += exportLine;
+  if (lineWithFunctionName === -1) {
+    lineWithFunctionName = 0;
+  }
 
-  return appCode;
+  return `{(${codeLines.slice(lineWithFunctionName).join('\n').trim()})()}`;
 };
 
 interface Props {
