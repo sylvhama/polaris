@@ -14,3 +14,5 @@ node_modules
 /polaris-tokens/build
 /polaris.shopify.com/public/sitemap.xml
 /polaris.shopify.com/public/og-images
+/polaris.shopify.com/public/icons
+/polaris.shopify.com/public/sandbox

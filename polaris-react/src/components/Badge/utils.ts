@@ -7,6 +7,7 @@ export function getDefaultAccessibilityLabel(
   progress?: Progress,
   status?: Status,
 ): string {
+  console.log(progress, status);
   let progressLabel = '';
   let statusLabel = '';
 
