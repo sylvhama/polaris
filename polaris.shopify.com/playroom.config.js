@@ -13,7 +13,7 @@ module.exports = {
   themes: './playroom/locales.ts',
   //snippets: "./playroom/snippets.js",
   frameComponent: './playroom/FrameComponent.tsx',
-  //scope: "./playroom/useScope.js",
+  scope: './playroom/scope.ts',
   widths: breakpointsConfig,
   port: 9000,
   openBrowser: false,
