@@ -23,7 +23,6 @@ module.exports = {
   //    Hello World!
   //  </Button>
   //`,
-  baseUrl: '/',
   webpackConfig: () => ({
     module: {
       rules: [

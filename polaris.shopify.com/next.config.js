@@ -8,6 +8,14 @@ const nextConfig = {
   experimental: {
     scrollRestoration: true,
   },
+  async rewrites() {
+    return [
+      {
+        source: '/sandbox',
+        destination: '/sandbox/index.html',
+      },
+    ];
+  },
   async headers() {
     return [
       {
