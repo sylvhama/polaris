@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react';
 import styles from './ComponentExamples.module.scss';
 import CodesandboxButton from '../CodesandboxButton';
+import PlayroomButton from '../PlayroomButton';
 import Code from '../Code';
 import {Tab} from '@headlessui/react';
 import {className} from '../../utils/various';
@@ -116,6 +117,10 @@ const ComponentExamples = ({examples}: Props) => {
                   />
                   <div className={className(styles.Buttons, 'light-mode')}>
                     <CodesandboxButton
+                      className={styles.CodesandboxButton}
+                      code={code}
+                    />
+                    <PlayroomButton
                       className={styles.CodesandboxButton}
                       code={code}
                     />
