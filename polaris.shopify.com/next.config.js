@@ -10,10 +10,16 @@ const nextConfig = {
   },
   async rewrites() {
     return [
-      {
-        source: '/sandbox',
-        destination: '/sandbox/index.html',
-      },
+      // We want to rewrite the sandbox route in production
+      // to point at the public directory that our playroom assets are built to
+      ...(process.env.NODE_ENV === 'production'
+        ? [
+            {
+              source: '/sandbox',
+              destination: '/sandbox/index.html',
+            },
+          ]
+        : []),
     ];
   },
   async headers() {
@@ -39,6 +45,17 @@ const nextConfig = {
 
   async redirects() {
     return [
+      // We run a redirect to port 9000 for non prod environments
+      // as playroom files aren't built to the public directory in dev mode.
+      ...(process.env.NODE_ENV !== 'production'
+        ? [
+            {
+              source: '/sandbox',
+              destination: 'http://localhost:9000',
+              permanent: false,
+            },
+          ]
+        : []),
       {
         source: '/components/get-started',
         destination: '/components',

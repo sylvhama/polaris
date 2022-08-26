@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "yarn playroom:build && next build",
-    "dev": "open http://localhost:3000 && next dev",
+    "dev": "concurrently \"open http://localhost:3000 && next dev\"  \"npm:playroom:start\"",
     "start": "next start",
     "lint": "run-p lint:*",
     "lint:js": "TIMING=1 eslint --cache .",
@@ -40,6 +40,7 @@
     "@types/node": "17.0.21",
     "@types/prismjs": "^1.26.0",
     "@types/react": "*",
+    "concurrently": "ˆ7.3.0",
     "eslint-config-next": "12.1.0",
     "eslint": "8.10.0",
     "execa": "^6.1.0",

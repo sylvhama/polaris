@@ -16,7 +16,7 @@ module.exports = {
   //scope: "./playroom/useScope.js",
   widths: breakpointsConfig,
   port: 9000,
-  openBrowser: true,
+  openBrowser: false,
   paramType: 'hash', // default is 'hash'
   //exampleCode: `
   //  <Button>
