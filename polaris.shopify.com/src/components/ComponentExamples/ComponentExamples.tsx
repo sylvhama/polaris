@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react';
 import styles from './ComponentExamples.module.scss';
 import CodesandboxButton from '../CodesandboxButton';
-import PlayroomButton from '../PlayroomButton';
+import PlayroomLink from '../PlayroomLink';
 import Code from '../Code';
 import {Tab} from '@headlessui/react';
 import {className} from '../../utils/various';
@@ -120,7 +120,7 @@ const ComponentExamples = ({examples}: Props) => {
                       className={styles.CodesandboxButton}
                       code={code}
                     />
-                    <PlayroomButton
+                    <PlayroomLink
                       className={styles.CodesandboxButton}
                       code={code}
                     />

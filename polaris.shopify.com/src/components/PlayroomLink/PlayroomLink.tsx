@@ -19,7 +19,7 @@ interface Props {
 }
 
 const PlayroomButton = (props: Props) => {
-  const {className, code} = props;
+  const {code, className} = props;
 
   const encodedCode = createUrl({
     // TODO: Don't hard code this
