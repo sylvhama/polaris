@@ -1,4 +1,5 @@
 import {createUrl} from 'playroom';
+import styles from './PlayroomLink.module.scss';
 
 const getAppCode = (code: string) => {
   const codeLines = code.split('\n');
@@ -14,12 +15,11 @@ const getAppCode = (code: string) => {
 };
 
 interface Props {
-  className: string;
   code: string;
 }
 
 const PlayroomButton = (props: Props) => {
-  const {code, className} = props;
+  const {code} = props;
 
   const encodedCode = createUrl({
     // TODO: Don't hard code this
@@ -29,7 +29,7 @@ const PlayroomButton = (props: Props) => {
   });
 
   return (
-    <a href={encodedCode} className={className}>
+    <a href={encodedCode} className={styles.Link}>
       Edit in Playroom
     </a>
   );
