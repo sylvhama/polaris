@@ -120,10 +120,7 @@ const ComponentExamples = ({examples}: Props) => {
                       className={styles.CodesandboxButton}
                       code={code}
                     />
-                    <PlayroomLink
-                      className={styles.CodesandboxButton}
-                      code={code}
-                    />
+                    <PlayroomLink code={code} />
                   </div>
                 </div>
 
