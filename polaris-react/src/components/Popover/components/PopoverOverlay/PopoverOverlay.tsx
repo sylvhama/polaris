@@ -18,6 +18,7 @@ import {
 } from '../../../PositionedOverlay';
 import {Pane, PaneProps} from '../Pane';
 import styles from '../../Popover.scss';
+import { PortalsManagerContext } from '../../../../utilities/portals';
 
 export enum PopoverCloseSource {
   Click,
@@ -69,6 +70,7 @@ export class PopoverOverlay extends PureComponent<PopoverOverlayProps, State> {
   private enteringTimer?: number;
   private exitingTimer?: number;
   private overlayRef: React.RefObject<PositionedOverlay>;
+  static contextType = PortalsManagerContext;
 
   constructor(props: PopoverOverlayProps) {
     super(props);
@@ -284,9 +286,13 @@ export class PopoverOverlay extends PureComponent<PopoverOverlayProps, State> {
       return;
     }
 
+    console.log('context container', this.context.container);
+    console.log('context container contains', this.context.container?.contains(target));
+    console.log('query container', document.querySelectorAll('#PolarisPortalsContainer'));
     const isPolarisPortalDescendant = Array.from(
       document.querySelectorAll('#PolarisPortalsContainer'),
     ).some((portalContainer) => portalContainer.contains(target));
+    console.log('query container contains', isPolarisPortalDescendant);
     if (isPolarisPortalDescendant) {
       return;
     }
