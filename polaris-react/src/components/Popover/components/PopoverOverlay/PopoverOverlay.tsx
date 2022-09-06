@@ -274,7 +274,7 @@ export class PopoverOverlay extends PureComponent<PopoverOverlayProps, State> {
     } = this;
     const isDescendant =
       contentNode.current != null &&
-      nodeContainsDescendant(contentNode.current, target);
+      event.composedPath().includes(contentNode.current);
     const isActivatorDescendant = nodeContainsDescendant(activator, target);
     if (
       isDescendant ||
@@ -283,6 +283,14 @@ export class PopoverOverlay extends PureComponent<PopoverOverlayProps, State> {
     ) {
       return;
     }
+
+    const isPolarisPortalDescendant = Array.from(
+      document.querySelectorAll('#PolarisPortalsContainer'),
+    ).some((portalContainer) => portalContainer.contains(target));
+    if (isPolarisPortalDescendant) {
+      return;
+    }
+
     onClose(PopoverCloseSource.Click);
   };
 
